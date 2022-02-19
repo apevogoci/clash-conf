@@ -2,11 +2,14 @@ on:
   schedule:
     - cron: '30 * * * *'
   workflow_dispatch:
-permissions: read-all|write-all
+
+permissions: write-all
+
 defaults:
   run:
     shell: bash
     working-directory: ./
+
 jobs:
   configurator:
     runs-on: ubuntu-latest
