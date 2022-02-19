@@ -2,6 +2,7 @@ on:
   schedule:
     - cron: '30 * * * *'
   workflow_dispatch:
+permissions: read-all|write-all
 defaults:
   run:
     shell: bash
@@ -14,4 +15,5 @@ jobs:
       run: |
         pwd
         ls -ral
+        seq 1 10 >data/new.txt
         #wget -O data/proxy.pac -- 'https://antizapret.prostovpn.org/proxy.pac'
