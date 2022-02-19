@@ -1,0 +1,10 @@
+on:
+  schedule:
+    - cron: '30,40 * * * *'
+jobs:
+  configurator:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download antizapret pac file
+      run: |
+        wget -O ./'proxy.pac' -- 'https://antizapret.prostovpn.org/proxy.pac'
