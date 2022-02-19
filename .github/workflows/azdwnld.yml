@@ -29,7 +29,7 @@ jobs:
         git add ./conf
         git commit -m "Updating the repository" || SUCC=1
     - name: Push changes # push the output folder to your repo
-      if: ${{ SUCC=0 }}
+      if: ${{ SUCC == 0 }}
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
