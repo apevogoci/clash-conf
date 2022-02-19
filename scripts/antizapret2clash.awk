@@ -3,9 +3,9 @@ BEGIN {
   B36="0123456789abcdefghijklmnopqrstuvwxyz"
   ips=0
   pip=0
-  DMNF="./conf/rule_azd.yaml"
-  IPCF="./conf/rule_azi.yaml"
-  SPCF="./conf/rule_azs.yaml"
+  DMNF="./conf/rules_azd.yaml"
+  IPCF="./conf/rules_azi.yaml"
+  SPCF="./conf/rules_azs.yaml"
   spc=0
 }
 
