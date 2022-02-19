@@ -16,6 +16,16 @@ jobs:
     steps:
     - name: Download antizapret pac file
       run: |
-        ls -ral ${{ github.workspace }}
-        #seq 1 10 >./data/new.txt
-        #wget -O data/proxy.pac -- 'https://antizapret.prostovpn.org/proxy.pac'
+        mkdir -p data
+        wget -O data/proxy.pac -- 'https://antizapret.prostovpn.org/proxy.pac'
+    - name: Commit files # transfer the new html files back into the repository
+      run: |
+        git config --local user.name "ghactions"
+        git add ./data
+        git commit -m "Updating the repository"
+    - name: Push changes # push the output folder to your repo
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        force: true
+ 
