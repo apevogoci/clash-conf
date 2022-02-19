@@ -16,6 +16,6 @@ jobs:
     steps:
     - name: Download antizapret pac file
       run: |
-        ls -ral ./
+        ls -ral ${{ github.workspace }}
         #seq 1 10 >./data/new.txt
         #wget -O data/proxy.pac -- 'https://antizapret.prostovpn.org/proxy.pac'
