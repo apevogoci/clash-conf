@@ -7,4 +7,4 @@ jobs:
     steps:
     - name: Download antizapret pac file
       run: |
-        wget -O ./'proxy.pac' -- 'https://antizapret.prostovpn.org/proxy.pac'
+        wget -O proxy.pac -- 'https://antizapret.prostovpn.org/proxy.pac'
