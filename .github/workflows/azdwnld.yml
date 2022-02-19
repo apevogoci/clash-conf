@@ -16,7 +16,6 @@ jobs:
     steps:
     - name: Download antizapret pac file
       run: |
-        pwd
-        ls -ral
-        seq 1 10 >data/new.txt
+        ls -ral ./
+        seq 1 10 >./data/new.txt
         #wget -O data/proxy.pac -- 'https://antizapret.prostovpn.org/proxy.pac'
