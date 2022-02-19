@@ -12,6 +12,8 @@ defaults:
 
 jobs:
   build:
+    env:
+      SUCC: 0
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -25,8 +27,9 @@ jobs:
       run: |
         git config --local user.name "ghactions"
         git add ./conf
-        git commit -m "Updating the repository"
+        git commit -m "Updating the repository" || SUCC=1
     - name: Push changes # push the output folder to your repo
+      if: ${{ SUCC=0 }}
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
