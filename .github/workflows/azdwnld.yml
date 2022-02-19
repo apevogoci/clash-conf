@@ -1,6 +1,10 @@
 on:
   schedule:
     - cron: '30 * * * *'
+defaults:
+  run:
+    shell: bash
+    working-directory: ./
 jobs:
   configurator:
     runs-on: ubuntu-latest
