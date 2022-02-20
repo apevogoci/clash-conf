@@ -28,7 +28,7 @@ jobs:
         echo "SUCC=0" >> $GITHUB_ENV
         git config --local user.name "ghactions"
         git add ./conf
-        git commit -m "Updating the repository" || echo "SUCC=1" >> $GITHUB_ENV
+        git commit -m "Updating rules" || echo "SUCC=1" >> $GITHUB_ENV
     - name: Push changes # push the output folder to your repo
       if: ${{ env.SUCC == 0 }}
       uses: ad-m/github-push-action@master
