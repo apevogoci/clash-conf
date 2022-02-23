@@ -58,19 +58,19 @@ ips==1 {
       for(j=length(t[i]);j>0;j--){
         cip+=(index(B36, substr(t[i],j,1))-1)*36^(length(t[i])-j)
       }
-      printf "%s\t%d\t%d\t", t[i], pip, cip
+      #printf "%s\t%d\t%d\t", t[i], pip, cip
       pip=cip
       printf "  - '" >>IPCF
       for(j=256^3;j>=1;j/=256){
-        printf "%d",int(cip/j)
+        #printf "%d",int(cip/j)
         printf "%d",int(cip/j) >>IPCF
         if(j!=1){
-          printf "."
+          #printf "."
           printf "." >>IPCF
         }
         cip%=j
       }
-      print "/32'"
+      #print "/32'"
       print "/32'" >>IPCF
     }
   }
