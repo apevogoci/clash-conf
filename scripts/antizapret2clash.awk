@@ -51,7 +51,7 @@ ips==1&&/"/ {
 }
 
 ips==1 {
-  split($0, t, /[ \/]+/)
+  split($0, t, /[\\[:space:]]+/)
   for(i in t){
     if (length(t[i])>0){
       cip=pip
