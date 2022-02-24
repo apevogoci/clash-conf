@@ -20,7 +20,7 @@ jobs:
     - name: Download antizapret pac file
       run: |
         mkdir -p conf
-        wget -O proxy.pac -- 'https://antizapret.prostovpn.org/proxy.pac'
+        curl --compressed -o 'proxy.pac' 'https://antizapret.prostovpn.org/proxy.pac'
         awk -f ./scripts/antizapret2clash.awk ./proxy.pac
         rm ./proxy.pac
     - name: Commit files # transfer the new html files back into the repository
