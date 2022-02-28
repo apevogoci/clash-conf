@@ -19,9 +19,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Download antizapret pac file
       run: |
+        echo $SUCC
         mkdir -p conf
         curl -L --compressed -o 'proxy.pac' 'https://antizapret.prostovpn.org/proxy.pac'
-        awk -f ./scripts/antizapret2clash.awk ./proxy.pac
+        awk -f ./scripts/antizapret2clash.awk ./proxy.pac | sort -bk2 -o ./conf/rules_azd.yaml
         rm ./proxy.pac
     - name: Commit files # transfer the new html files back into the repository
       run: |
