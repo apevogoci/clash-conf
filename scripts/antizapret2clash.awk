@@ -12,7 +12,7 @@ BEGIN {
 dmn == 0 {
 	if (/^domains/) {
 		dmn = 1
-		print("payload:") > DMNF
+		print("payload:")
 	}
 	next
 }
@@ -32,7 +32,7 @@ dmn == 1 {
 	if (/^[[:space:]]*[[:digit:]]/) {
 		split($0, t, /[:"[:space:]]+/)
 		for (i = 1; i < length(t[3]) + 1; i += t[2]) {
-			print("  - DOMAIN-SUFFIX," substr(t[3], i, t[2]) "." tld) >> DMNF
+			print("  - DOMAIN-SUFFIX," substr(t[3], i, t[2]) "." tld)
 		}
 		delete t
 		next
