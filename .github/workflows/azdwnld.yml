@@ -21,12 +21,12 @@ jobs:
       run: |
         echo $SUCC
         mkdir -p conf
-        curl -L --compressed -o 'proxy.pac' 'https://antizapret.prostovpn.org/proxy.pac'
+        curl -L --compressed -o 'proxy.pac' 'https://antizapret.prostovpn.org/proxy.pac' || echo "SUCC=1" >> $GITHUB_ENV
         awk -f ./scripts/antizapret2clash.awk ./proxy.pac | sort -bk2 -o ./conf/rules_azd.yaml
         rm ./proxy.pac
     - name: Commit files # transfer the new html files back into the repository
+      if: ${{ env.SUCC == 0 }}
       run: |
-        echo "SUCC=0" >> $GITHUB_ENV
         git config --local user.name "ghactions"
         git add ./conf
         git commit -m "Updating rules" || echo "SUCC=1" >> $GITHUB_ENV
